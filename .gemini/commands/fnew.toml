@@ -1,0 +1,11 @@
+description = "Start a new Gemini Agent Factory project session."
+prompt = """
+I want to start a new Gemini Agent Factory project session.
+The arguments provided are: {{args}}
+
+Please parse these arguments to extract a 'Project ID' and a 'Project Name'.
+Then, use your tools to:
+1. Run: powershell.exe -NoProfile -Command ".\\src\\project_state.ps1 -Action Add -ProjectId '<ID>' -Name '<Name>'"
+2. Run: powershell.exe -NoProfile -Command ".\\src\\start_factory.ps1 -ProjectId '<ID>' -Agent 'master'"
+3. Confirm the launch to the user.
+"""
