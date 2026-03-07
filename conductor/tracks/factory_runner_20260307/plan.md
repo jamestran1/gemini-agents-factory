@@ -19,9 +19,9 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 2: Master Orchestrator & MCP/Skill Empowerment' (Protocol in workflow.md) (70d83d8)
 
 ## Phase 3: CLI Integration & Parallel Runner
-- [ ] Task: Implement a `start-factory.ps1` script to launch independent CLI sessions
-    - [ ] Write Tests (Mock CLI session launch)
-    - [ ] Implement Feature
+- [x] Task: Implement a `start-factory.ps1` script to launch independent CLI sessions (6988823)
+    - [x] Write Tests (Mock CLI session launch)
+    - [x] Implement Feature
 - [ ] Task: Create a Gemini CLI slash command (e.g., `/factory:new`) using a custom hook or command
     - [ ] Write Tests (Verify command registration and initial execution)
     - [ ] Implement Feature
