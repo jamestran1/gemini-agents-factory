@@ -9,14 +9,14 @@
     - [x] Implement Feature
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Multi-Project Brain' (Protocol in workflow.md) (a94fa79)
 
-## Phase 2: Master Orchestrator & MCP/Skill Empowerment
+## Phase 2: Master Orchestrator & MCP/Skill Empowerment [checkpoint: 70d83d8]
 - [x] Task: Define the `Master Orchestrator` agent prompt (`src/agents/master.md`) (dd987b0)
     - [x] Write Tests (Verify master agent logic and delegation capability)
     - [x] Implement Feature
 - [x] Task: Update all agent system prompts to explicitly reference Skill/MCP usage (7f6fa89)
     - [x] Write Tests (Confirm prompts now include MCP instructions)
     - [x] Implement Feature
-- [ ] Task: Conductor - User Manual Verification 'Phase 2: Master Orchestrator & MCP/Skill Empowerment' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 2: Master Orchestrator & MCP/Skill Empowerment' (Protocol in workflow.md) (70d83d8)
 
 ## Phase 3: CLI Integration & Parallel Runner
 - [ ] Task: Implement a `start-factory.ps1` script to launch independent CLI sessions
