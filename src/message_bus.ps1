@@ -6,12 +6,20 @@ param(
     [string]$From,
     [string]$To,
     [string]$Message,
-    [string]$ContextFile = "shared_context.json"
+    [string]$ProjectId,
+    [string]$ContextFile
 )
 
-# Anchor the default filename to the project root if no specific directory is provided
-if (-not ([System.IO.Path]::IsPathRooted($ContextFile)) -and -not ($ContextFile -match '[\\/]')) {
-    $projectRoot = Split-Path $PSScriptRoot -Parent
+$projectRoot = Split-Path $PSScriptRoot -Parent
+
+if ($ProjectId) {
+    $ContextFile = Join-Path $projectRoot "shared_context_$ProjectId.json"
+} elseif (-not $ContextFile) {
+    $ContextFile = Join-Path $projectRoot "shared_context.json"
+}
+
+# Anchor the filename if it's relative and not already resolved
+if (-not ([System.IO.Path]::IsPathRooted($ContextFile))) {
     $ContextFile = Join-Path $projectRoot $ContextFile
 }
 
