@@ -14,9 +14,9 @@
 - [x] Task: Implement Trello Skill in `skills/trello/SKILL.md` (862ac51)
     - [x] Write Tests (Verify skill instructions and tool references)
     - [x] Implement Feature
-- [ ] Task: Implement Context Bus Skill in `skills/message-bus/SKILL.md`
-    - [ ] Write Tests (Verify skill instructions)
-    - [ ] Implement Feature
+- [x] Task: Implement Context Bus Skill in `skills/message-bus/SKILL.md` (7a11e69)
+    - [x] Write Tests (Verify skill instructions)
+    - [x] Implement Feature
 - [ ] Task: Implement Factory Launcher Skill in `skills/launcher/SKILL.md`
     - [ ] Write Tests (Verify skill instructions)
     - [ ] Implement Feature
