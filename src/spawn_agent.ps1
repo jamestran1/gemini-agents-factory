@@ -16,20 +16,18 @@ if (-not (Test-Path $agentPromptPath)) {
     exit 1
 }
 
-# Use 'gemini' as the executable.
-# For background tasks, we can use --non-interactive if supported,
-# or simply launch in a minimized window / hidden process.
-$command = "gemini --prompt-file `"$agentPromptPath`""
+# The gemini command is a PowerShell script (C:\nvm4w\nodejs\gemini.ps1)
+$geminiExe = "C:\nvm4w\nodejs\gemini.ps1"
 
 if ($Mock) {
-    $msg = "Spawned background Gemini CLI session for project $ProjectId with agent $Agent (Command: $command)"
+    $msg = "Spawned background Gemini CLI session for project $ProjectId with agent $Agent (using GEMINI_SYSTEM_MD=$agentPromptPath)"
     Write-Host $msg
     return $msg
 }
 
 Write-Host "Spawning background agent: $Agent for project $ProjectId..."
 
-# Use Start-Process with -WindowStyle Hidden or Minimized for 'background' feel
-Start-Process powershell.exe -ArgumentList "-NoProfile", "-Command", "$command" -WindowStyle Minimized
+# Use Start-Process with -WindowStyle Minimized for 'background' feel
+Start-Process powershell.exe -ArgumentList "-NoProfile", "-Command", "`$env:GEMINI_SYSTEM_MD = `"$agentPromptPath`" ; Set-Location `"$projectRoot`" ; & `"$geminiExe`"" -WindowStyle Minimized
 
 Write-Host "Agent spawned in background (minimized window)."

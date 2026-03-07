@@ -18,18 +18,17 @@ if (-not (Test-Path $agentPromptPath)) {
 
 # The gemini command is a PowerShell script (C:\nvm4w\nodejs\gemini.ps1)
 $geminiExe = "C:\nvm4w\nodejs\gemini.ps1"
-$geminiArgs = "--prompt-file `"$agentPromptPath`""
 
 if ($Mock) {
-    $msg = "Launched Gemini CLI session for project $ProjectId with agent $Agent (Command: $geminiExe $geminiArgs)"
+    $msg = "Launched Gemini CLI session for project $ProjectId with agent $Agent (using GEMINI_SYSTEM_MD=$agentPromptPath)"
     Write-Host $msg
     return $msg
 }
 
 Write-Host "Launching Gemini CLI for Project: $ProjectId, Agent: $Agent..."
 
-# We must launch PowerShell and tell it to run the gemini.ps1 script.
-# We also want to stay in the project directory.
-Start-Process powershell.exe -ArgumentList "-NoExit", "-Command", "Set-Location `"$projectRoot`" ; & `"$geminiExe`" $geminiArgs"
+# We set the GEMINI_SYSTEM_MD environment variable to the agent's prompt file.
+# Then we launch gemini in a new window.
+Start-Process powershell.exe -ArgumentList "-NoExit", "-Command", "`$env:GEMINI_SYSTEM_MD = `"$agentPromptPath`" ; Set-Location `"$projectRoot`" ; & `"$geminiExe`""
 
 Write-Host "Session started."
