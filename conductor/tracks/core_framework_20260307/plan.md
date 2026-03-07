@@ -28,9 +28,9 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 2: Central Orchestrator & Message Bus' (Protocol in workflow.md) (39768f8)
 
 ## Phase 3: Trello Integration Skeleton
-- [ ] Task: Implement baseline Trello API service (authenticate and fetch board)
-    - [ ] Write Tests (Mock Trello API response)
-    - [ ] Implement Feature
+- [x] Task: Implement baseline Trello API service (authenticate and fetch board) (be14963)
+    - [x] Write Tests (Mock Trello API response)
+    - [x] Implement Feature
 - [ ] Task: Connect Project Manager Agent to Trello Service for Task Creation
     - [ ] Write Tests (Test task creation flow)
     - [ ] Implement Feature
