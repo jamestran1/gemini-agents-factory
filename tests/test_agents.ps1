@@ -31,3 +31,20 @@ if ($content -match "Designer" -and $content.ToLower() -match "visual") {
     Write-Host "FAIL: Designer prompt content is incorrect."
     exit 1
 }
+
+# Test Project Manager Agent Existence
+if (Test-Path "src/agents/project_manager.md") {
+    Write-Host "PASS: src/agents/project_manager.md exists."
+} else {
+    Write-Host "FAIL: src/agents/project_manager.md not found."
+    exit 1
+}
+
+# Test Project Manager Prompt Content
+$content = Get-Content "src/agents/project_manager.md" -Raw
+if ($content -match "Project Manager" -and $content.ToLower() -match "tasks") {
+    Write-Host "PASS: Project Manager prompt contains expected content."
+} else {
+    Write-Host "FAIL: Project Manager prompt content is incorrect."
+    exit 1
+}
