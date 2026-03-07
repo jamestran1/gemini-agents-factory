@@ -17,9 +17,9 @@
 - [x] Task: Implement Context Bus Skill in `skills/message-bus/SKILL.md` (7a11e69)
     - [x] Write Tests (Verify skill instructions)
     - [x] Implement Feature
-- [ ] Task: Implement Factory Launcher Skill in `skills/launcher/SKILL.md`
-    - [ ] Write Tests (Verify skill instructions)
-    - [ ] Implement Feature
+- [x] Task: Implement Factory Launcher Skill in `skills/launcher/SKILL.md` (2484c78)
+    - [x] Write Tests (Verify skill instructions)
+    - [x] Implement Feature
 - [ ] Task: Conductor - User Manual Verification 'Phase 2: Skill Implementation & Tool Wrapping' (Protocol in workflow.md)
 
 ## Phase 3: Path Portability & Native Integration
