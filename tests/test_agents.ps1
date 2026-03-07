@@ -8,10 +8,10 @@ if (Test-Path "src/agents/product_owner.md") {
 
 # Test Product Owner Prompt Content
 $content = Get-Content "src/agents/product_owner.md" -Raw
-if ($content -match "Product Owner" -and $content.ToLower() -match "requirements") {
-    Write-Host "PASS: Product Owner prompt contains expected content."
+if ($content -match "Product Owner" -and $content.ToLower() -match "requirements" -and $content.ToLower() -match "skill|mcp") {
+    Write-Host "PASS: Product Owner prompt contains expected content and MCP/Skill reference."
 } else {
-    Write-Host "FAIL: Product Owner prompt content is incorrect."
+    Write-Host "FAIL: Product Owner prompt content is incorrect or missing MCP/Skill reference."
     exit 1
 }
 
@@ -25,10 +25,10 @@ if (Test-Path "src/agents/designer.md") {
 
 # Test Designer Prompt Content
 $content = Get-Content "src/agents/designer.md" -Raw
-if ($content -match "Designer" -and $content.ToLower() -match "visual") {
-    Write-Host "PASS: Designer prompt contains expected content."
+if ($content -match "Designer" -and $content.ToLower() -match "visual" -and $content.ToLower() -match "skill|mcp") {
+    Write-Host "PASS: Designer prompt contains expected content and MCP/Skill reference."
 } else {
-    Write-Host "FAIL: Designer prompt content is incorrect."
+    Write-Host "FAIL: Designer prompt content is incorrect or missing MCP/Skill reference."
     exit 1
 }
 
@@ -42,10 +42,10 @@ if (Test-Path "src/agents/project_manager.md") {
 
 # Test Project Manager Prompt Content
 $content = Get-Content "src/agents/project_manager.md" -Raw
-if ($content -match "Project Manager" -and $content.ToLower() -match "tasks" -and $content -match "trello_service.ps1") {
-    Write-Host "PASS: Project Manager prompt contains expected content and Trello instructions."
+if ($content -match "Project Manager" -and $content.ToLower() -match "tasks" -and $content -match "trello_service.ps1" -and $content.ToLower() -match "skill|mcp") {
+    Write-Host "PASS: Project Manager prompt contains expected content, Trello instructions, and MCP/Skill reference."
 } else {
-    Write-Host "FAIL: Project Manager prompt content is incorrect or missing Trello instructions."
+    Write-Host "FAIL: Project Manager prompt content is incorrect or missing instructions."
     exit 1
 }
 
@@ -59,10 +59,10 @@ if (Test-Path "src/agents/software_engineer.md") {
 
 # Test Software Engineer Prompt Content
 $content = Get-Content "src/agents/software_engineer.md" -Raw
-if ($content -match "Software Engineer" -and $content.ToLower() -match "implementation") {
-    Write-Host "PASS: Software Engineer prompt contains expected content."
+if ($content -match "Software Engineer" -and $content.ToLower() -match "implementation" -and $content.ToLower() -match "skill|mcp") {
+    Write-Host "PASS: Software Engineer prompt contains expected content and MCP/Skill reference."
 } else {
-    Write-Host "FAIL: Software Engineer prompt content is incorrect."
+    Write-Host "FAIL: Software Engineer prompt content is incorrect or missing MCP/Skill reference."
     exit 1
 }
 
@@ -76,9 +76,9 @@ if (Test-Path "src/agents/qa.md") {
 
 # Test QA Prompt Content
 $content = Get-Content "src/agents/qa.md" -Raw
-if ($content -match "QA" -and $content.ToLower() -match "verification") {
-    Write-Host "PASS: QA prompt contains expected content."
+if ($content -match "QA" -and $content.ToLower() -match "verification" -and $content.ToLower() -match "skill|mcp") {
+    Write-Host "PASS: QA prompt contains expected content and MCP/Skill reference."
 } else {
-    Write-Host "FAIL: QA prompt content is incorrect."
+    Write-Host "FAIL: QA prompt content is incorrect or missing MCP/Skill reference."
     exit 1
 }
