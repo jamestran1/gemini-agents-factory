@@ -22,9 +22,9 @@
 - [x] Task: Implement Central Orchestrator logic for routing user prompts (e61e10d)
     - [x] Write Tests (Test routing and delegation)
     - [x] Implement Feature
-- [ ] Task: Implement Shared Context/Message Bus for agent-to-agent chat
-    - [ ] Write Tests (Test message passing between two agents)
-    - [ ] Implement Feature
+- [x] Task: Implement Shared Context/Message Bus for agent-to-agent chat (3209e34)
+    - [x] Write Tests (Test message passing between two agents)
+    - [x] Implement Feature
 - [ ] Task: Conductor - User Manual Verification 'Phase 2: Central Orchestrator & Message Bus' (Protocol in workflow.md)
 
 ## Phase 3: Trello Integration Skeleton
