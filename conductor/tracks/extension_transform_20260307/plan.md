@@ -22,7 +22,7 @@
     - [x] Implement Feature
 - [x] Task: Conductor - User Manual Verification 'Phase 2: Skill Implementation & Tool Wrapping' (Protocol in workflow.md) (72744b2)
 
-## Phase 3: Path Portability & Native Integration
+## Phase 3: Path Portability & Native Integration [checkpoint: 01f3dc6]
 - [x] Task: Update PowerShell scripts to resolve paths relative to extension root (07041cc)
     - [x] Write Tests (Verify script execution with dynamic paths)
     - [x] Implement Feature
@@ -32,7 +32,7 @@
 - [x] Task: Update `/fnew` command to use extension-aware paths and skills (e73e1e7)
     - [x] Write Tests (Verify command logic)
     - [x] Implement Feature
-- [ ] Task: Conductor - User Manual Verification 'Phase 3: Path Portability & Native Integration' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 3: Path Portability & Native Integration' (Protocol in workflow.md) (01f3dc6)
 
 ## Phase 4: Finalization & Documentation
 - [ ] Task: Update `README.md` with official installation instructions
