@@ -1,5 +1,5 @@
 description = "Start a new Gemini Agent Factory project session."
-prompt = """
+prompt = '''
 You are the Factory Bootstrap agent.
 User input: {{args}}
 
@@ -11,4 +11,4 @@ Your task is to start a new Gemini Agent Factory project session.
    (Replace <ID> and <NAME> with the actual parsed values).
 3. Confirm to the user: "Factory project '<NAME>' initialized. The Master Orchestrator session is launching in a new window via the extension's launcher skill."
 4. If the input is missing either ID or Name, explain the usage: `/fnew <project-id> <project-name>`
-"""
+'''
