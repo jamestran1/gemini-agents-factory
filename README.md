@@ -22,23 +22,16 @@ The factory features 6 specialized roles, each with a senior persona and full ac
 - **Autonomous Runner:** Launch independent agent sessions in new windows.
 - **Parallel Multi-Project Engine:** Manage multiple concurrent projects with isolated shared contexts.
 - **Native CLI Integration:** Bootstrap new projects using the `/fnew` slash command.
-- **Shared Context (Message Bus):** Real-time communication and state sharing between agents.
-- **Trello Automation:** Automatic task tracking and project management.
+- **Official Skills:** Trello Management, Context Message Bus, and Factory Agent Launcher skills.
+- **Native Sub-Agents:** Access specialized agents (master, product_owner, designer, project_manager, software_engineer, qa) directly.
 - **MCP & Skill Support:** Every agent is empowered by your installed Gemini CLI extensions.
 
 ## 📥 Installation
 
-1. Clone this repository into your Gemini CLI workspace.
-2. Ensure you have the `conductor` extension installed.
-3. Set your Trello credentials:
-   ```powershell
-   $env:TRELLO_API_KEY = "your_key"
-   $env:TRELLO_TOKEN = "your_token"
-   ```
-4. Reload your CLI commands:
-   ```
-   /commands reload
-   ```
+Install the Gemini Agent Factory directly from GitHub:
+```bash
+gemini extensions install https://github.com/jamestran1/gemini-agents-factory
+```
 
 ## 🎮 Usage
 
@@ -49,19 +42,24 @@ Use the native slash command to bootstrap a new factory project:
 ```
 *Example:* `/fnew weather-app "Autonomous Weather Dashboard"`
 
-### Direct Launch
-You can also launch specific agents manually via PowerShell:
-```powershell
-.\src\start_factory.ps1 -ProjectId "my-proj" -Agent "master"
+### Accessing Skills
+View the factory's skills in the CLI:
+```
+/skills list
+```
+
+### Hiring Agents
+Hire a specific agent for a task:
+```
+Hire the software_engineer to implement the login logic.
 ```
 
 ## 🏗 Architecture
 
-- **`src/agents/`**: System prompt definitions for all agent roles.
-- **`src/orchestrator.ps1`**: Logic for task delegation and agent routing.
-- **`src/message_bus.ps1`**: Shared context management for agent collaboration.
-- **`src/trello_service.ps1`**: REST API integration for task management.
-- **`.gemini/commands/`**: Custom slash command definitions for the Gemini CLI.
+- **`agents/`**: System prompt definitions for all agent roles.
+- **`commands/`**: Custom slash command definitions.
+- **`skills/`**: Specialized factory skills (Trello, Message Bus, Launcher).
+- **`src/`**: PowerShell orchestration scripts.
 
 ## 📄 License
 This project is licensed under the MIT License.
