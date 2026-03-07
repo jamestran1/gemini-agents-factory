@@ -6,11 +6,9 @@ User input: {{args}}
 Your task is to start a new Gemini Agent Factory project session.
 
 1. Parse the 'User input' to extract a 'Project ID' and a 'Project Name'.
-   - It might be positional: 'my-id "My Project Name"'
-   - It might be named: 'project-id=my-id project-name="My Project Name"'
 2. If both are found, use your `run_shell_command` tool to execute:
-   `powershell.exe -NoProfile -Command ".\\src\\project_state.ps1 -Action Add -ProjectId '<ID>' -Name '<NAME>' ; .\\src\\start_factory.ps1 -ProjectId '<ID>' -Agent 'master'"`
+   `powershell.exe -NoProfile -Command ".\src\project_state.ps1 -Action Add -ProjectId '<ID>' -Name '<NAME>' ; .\src\start_factory.ps1 -ProjectId '<ID>' -Agent 'master'"`
    (Replace <ID> and <NAME> with the actual parsed values).
-3. Confirm to the user: "Factory project '<NAME>' initialized. The Master Orchestrator session is launching in a new window."
+3. Confirm to the user: "Factory project '<NAME>' initialized. The Master Orchestrator session is launching in a new window via the extension's launcher skill."
 4. If the input is missing either ID or Name, explain the usage: `/fnew <project-id> <project-name>`
 """
