@@ -19,9 +19,9 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Subagent Initialization' (Protocol in workflow.md) (d043fb6)
 
 ## Phase 2: Central Orchestrator & Message Bus
-- [ ] Task: Implement Central Orchestrator logic for routing user prompts
-    - [ ] Write Tests (Test routing and delegation)
-    - [ ] Implement Feature
+- [x] Task: Implement Central Orchestrator logic for routing user prompts (e61e10d)
+    - [x] Write Tests (Test routing and delegation)
+    - [x] Implement Feature
 - [ ] Task: Implement Shared Context/Message Bus for agent-to-agent chat
     - [ ] Write Tests (Test message passing between two agents)
     - [ ] Implement Feature
