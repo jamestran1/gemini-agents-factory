@@ -1,4 +1,4 @@
-# Track core_framework_20260307 Context
+# Track factory_runner_20260307 Context
 
 - [Specification](./spec.md)
 - [Implementation Plan](./plan.md)
