@@ -1,9 +1,9 @@
 # Implementation Plan: Autonomous Factory Runner & Parallel Multi-Project Engine
 
 ## Phase 1: Multi-Project Brain (Message Bus Update)
-- [ ] Task: Update `message_bus.ps1` to support unique `project_id` contexts
-    - [ ] Write Tests (Test sending/getting messages in two independent project contexts)
-    - [ ] Implement Feature
+- [x] Task: Update `message_bus.ps1` to support unique `project_id` contexts (d34e081)
+    - [x] Write Tests (Test sending/getting messages in two independent project contexts)
+    - [x] Implement Feature
 - [ ] Task: Create a `Project State` manifest to track all active/archived project IDs
     - [ ] Write Tests (Verify tracking of multiple projects)
     - [ ] Implement Feature
