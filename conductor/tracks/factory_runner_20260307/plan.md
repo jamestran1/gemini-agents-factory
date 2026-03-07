@@ -22,7 +22,7 @@
 - [x] Task: Implement a `start-factory.ps1` script to launch independent CLI sessions (6988823)
     - [x] Write Tests (Mock CLI session launch)
     - [x] Implement Feature
-- [ ] Task: Create a Gemini CLI slash command (e.g., `/factory:new`) using a custom hook or command
+- [~] Task: Create a Gemini CLI slash command (e.g., `/factory:new`) using a custom hook or command
     - [ ] Write Tests (Verify command registration and initial execution)
     - [ ] Implement Feature
 - [ ] Task: Implement background task spawning for agents (Async execution)
