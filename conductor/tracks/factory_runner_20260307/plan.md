@@ -4,9 +4,9 @@
 - [x] Task: Update `message_bus.ps1` to support unique `project_id` contexts (d34e081)
     - [x] Write Tests (Test sending/getting messages in two independent project contexts)
     - [x] Implement Feature
-- [ ] Task: Create a `Project State` manifest to track all active/archived project IDs
-    - [ ] Write Tests (Verify tracking of multiple projects)
-    - [ ] Implement Feature
+- [x] Task: Create a `Project State` manifest to track all active/archived project IDs (28bd386)
+    - [x] Write Tests (Verify tracking of multiple projects)
+    - [x] Implement Feature
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Multi-Project Brain' (Protocol in workflow.md)
 
 ## Phase 2: Master Orchestrator & MCP/Skill Empowerment
