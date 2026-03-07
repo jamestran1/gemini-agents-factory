@@ -25,7 +25,7 @@
 - [x] Task: Create a Gemini CLI slash command (e.g., `/factory:new`) using a custom hook or command (5abf2dd)
     - [x] Write Tests (Verify command registration and initial execution)
     - [x] Implement Feature
-- [ ] Task: Implement background task spawning for agents (Async execution)
-    - [ ] Write Tests (Test spawning an agent in the background)
-    - [ ] Implement Feature
+- [x] Task: Implement background task spawning for agents (Async execution) (203c699)
+    - [x] Write Tests (Test spawning an agent in the background)
+    - [x] Implement Feature
 - [ ] Task: Conductor - User Manual Verification 'Phase 3: CLI Integration & Parallel Runner' (Protocol in workflow.md)
