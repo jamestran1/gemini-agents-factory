@@ -1,13 +1,13 @@
 # Implementation Plan: Autonomous Factory Runner & Parallel Multi-Project Engine
 
-## Phase 1: Multi-Project Brain (Message Bus Update)
+## Phase 1: Multi-Project Brain (Message Bus Update) [checkpoint: a94fa79]
 - [x] Task: Update `message_bus.ps1` to support unique `project_id` contexts (d34e081)
     - [x] Write Tests (Test sending/getting messages in two independent project contexts)
     - [x] Implement Feature
 - [x] Task: Create a `Project State` manifest to track all active/archived project IDs (28bd386)
     - [x] Write Tests (Verify tracking of multiple projects)
     - [x] Implement Feature
-- [ ] Task: Conductor - User Manual Verification 'Phase 1: Multi-Project Brain' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 1: Multi-Project Brain' (Protocol in workflow.md) (a94fa79)
 
 ## Phase 2: Master Orchestrator & MCP/Skill Empowerment
 - [ ] Task: Define the `Master Orchestrator` agent prompt (`src/agents/master.md`)
