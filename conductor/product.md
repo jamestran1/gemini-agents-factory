@@ -17,12 +17,12 @@ The factory is capable of generating a wide range of software artifacts:
 - **Open Source Projects:** Built following community standards and best practices to ensure they are easily evolvable by human contributors.
 
 ## Agent Workflow & Collaboration
-The factory's architecture supports dynamic, flexible workflows tailored to the project's needs:
+- **Framework Status:** The core collaborative 5-role framework is implemented.
 - **Sequential Handoff:** Traditional linear progression (PM -> Designer -> Engineer -> QA).
-- **Collaborative Chat:** Agents can discuss, debate, and refine requirements within a shared context.
-- **Central Orchestrator:** A master agent can delegate specific tasks to specialized sub-agents.
-- **Parallel Processing:** Support for multiple agents of the same role working simultaneously (e.g., 3 software engineers building 3 different features concurrently, or 3 designers mocking up different screens).
+- **Collaborative Chat:** Supported via the `message_bus.ps1` shared context.
+- **Central Orchestrator:** Implemented via `orchestrator.ps1` for dynamic delegation.
+- **Parallel Processing:** (Planned) Support for multiple agents of the same role.
 
 ## Supported Platforms & Integration
 - **Platform Agnostic:** Capable of building Web Applications, Mobile Applications, or adapting to any framework specified in the prompt.
-- **Task Management:** The factory features deep integration with Trello, allowing agents to manage, track, and update tasks autonomously.
+- **Task Management:** The factory features deep integration with Trello via `trello_service.ps1`, allowing agents to manage, track, and update tasks autonomously.
