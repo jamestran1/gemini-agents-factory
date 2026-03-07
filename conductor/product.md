@@ -17,12 +17,13 @@ The factory is capable of generating a wide range of software artifacts:
 - **Open Source Projects:** Built following community standards and best practices to ensure they are easily evolvable by human contributors.
 
 ## Agent Workflow & Collaboration
-- **Framework Status:** The core collaborative 5-role framework is implemented.
+- **Framework Status:** The core collaborative 5-role framework is implemented with an **Autonomous Runner**.
 - **Sequential Handoff:** Traditional linear progression (PM -> Designer -> Engineer -> QA).
 - **Collaborative Chat:** Supported via the `message_bus.ps1` shared context.
-- **Central Orchestrator:** Implemented via `orchestrator.ps1` for dynamic delegation.
-- **Parallel Processing:** (Planned) Support for multiple agents of the same role.
+- **Central Orchestrator:** Implemented via `orchestrator.ps1` and a dedicated **Master Orchestrator Agent** (`master.md`) for dynamic delegation.
+- **Parallel Processing:** Supported! Agents can be spawned in background sessions or new windows for concurrent project work.
 
 ## Supported Platforms & Integration
 - **Platform Agnostic:** Capable of building Web Applications, Mobile Applications, or adapting to any framework specified in the prompt.
 - **Task Management:** The factory features deep integration with Trello via `trello_service.ps1`, allowing agents to manage, track, and update tasks autonomously.
+- **CLI Integration:** Native integration via the `/fnew` slash command for initializing and launching projects.
