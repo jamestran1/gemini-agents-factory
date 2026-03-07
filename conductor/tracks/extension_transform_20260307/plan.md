@@ -11,9 +11,9 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Extension Scaffolding & Manifest' (Protocol in workflow.md) (e2aa7c4)
 
 ## Phase 2: Skill Implementation & Tool Wrapping
-- [ ] Task: Implement Trello Skill in `skills/trello/SKILL.md`
-    - [ ] Write Tests (Verify skill instructions and tool references)
-    - [ ] Implement Feature
+- [x] Task: Implement Trello Skill in `skills/trello/SKILL.md` (862ac51)
+    - [x] Write Tests (Verify skill instructions and tool references)
+    - [x] Implement Feature
 - [ ] Task: Implement Context Bus Skill in `skills/message-bus/SKILL.md`
     - [ ] Write Tests (Verify skill instructions)
     - [ ] Implement Feature
