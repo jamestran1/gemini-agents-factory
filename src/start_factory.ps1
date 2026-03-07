@@ -16,23 +16,20 @@ if (-not (Test-Path $agentPromptPath)) {
     exit 1
 }
 
-# Launch Gemini CLI. 
-# We use Start-Process with gemini directly to avoid the 'PowerShell' window feel where possible.
-# If 'gemini' is not a direct executable but a script/alias, we might need powershell -c.
-
-$geminiCommand = "gemini"
-$args = "--prompt-file `"$agentPromptPath`""
+# The gemini command is a PowerShell script (C:\nvm4w\nodejs\gemini.ps1)
+$geminiExe = "C:\nvm4w\nodejs\gemini.ps1"
+$geminiArgs = "--prompt-file `"$agentPromptPath`""
 
 if ($Mock) {
-    $msg = "Launched Gemini CLI session for project $ProjectId with agent $Agent (Command: $geminiCommand $args)"
+    $msg = "Launched Gemini CLI session for project $ProjectId with agent $Agent (Command: $geminiExe $geminiArgs)"
     Write-Host $msg
     return $msg
 }
 
 Write-Host "Launching Gemini CLI for Project: $ProjectId, Agent: $Agent..."
 
-# Using powershell to launch ensures paths and environment variables are inherited correctly
-# but we execute gemini immediately.
-Start-Process powershell.exe -ArgumentList "-NoExit", "-Command", "$geminiCommand $args"
+# We must launch PowerShell and tell it to run the gemini.ps1 script.
+# We also want to stay in the project directory.
+Start-Process powershell.exe -ArgumentList "-NoExit", "-Command", "Set-Location `"$projectRoot`" ; & `"$geminiExe`" $geminiArgs"
 
 Write-Host "Session started."

@@ -13,6 +13,11 @@ if (-not ([System.IO.Path]::IsPathRooted($ManifestFile))) {
     $ManifestFile = Join-Path $projectRoot $ManifestFile
 }
 
+# Helper to ensure clean array handling in PowerShell
+function Write-Manifest($data) {
+    $data | ConvertTo-Json -Depth 10 | Out-File $ManifestFile -Encoding utf8
+}
+
 if ($Action -eq "Add") {
     $newProject = @{
         id = $ProjectId
@@ -21,19 +26,16 @@ if ($Action -eq "Add") {
         created_at = (Get-Date).ToString("yyyy-MM-dd HH:mm:ss")
     }
 
+    $projects = @()
     if (Test-Path $ManifestFile) {
         $content = Get-Content $ManifestFile -Raw
-        if ([string]::IsNullOrWhiteSpace($content)) {
-            $projects = @($newProject)
-        } else {
+        if (-not [string]::IsNullOrWhiteSpace($content)) {
             $projects = @($content | ConvertFrom-Json)
-            $projects += $newProject
         }
-    } else {
-        $projects = @($newProject)
     }
-
-    $projects | ConvertTo-Json -Depth 10 | Out-File $ManifestFile
+    
+    $projects += $newProject
+    Write-Manifest $projects
 } elseif ($Action -eq "List") {
     if (Test-Path $ManifestFile) {
         $content = Get-Content $ManifestFile -Raw
@@ -52,6 +54,6 @@ if ($Action -eq "Add") {
                 $p.status = "archived"
             }
         }
-        $projects | ConvertTo-Json -Depth 10 | Out-File $ManifestFile
+        Write-Manifest $projects
     }
 }
