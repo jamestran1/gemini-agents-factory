@@ -48,3 +48,20 @@ if ($content -match "Project Manager" -and $content.ToLower() -match "tasks") {
     Write-Host "FAIL: Project Manager prompt content is incorrect."
     exit 1
 }
+
+# Test Software Engineer Agent Existence
+if (Test-Path "src/agents/software_engineer.md") {
+    Write-Host "PASS: src/agents/software_engineer.md exists."
+} else {
+    Write-Host "FAIL: src/agents/software_engineer.md not found."
+    exit 1
+}
+
+# Test Software Engineer Prompt Content
+$content = Get-Content "src/agents/software_engineer.md" -Raw
+if ($content -match "Software Engineer" -and $content.ToLower() -match "implementation") {
+    Write-Host "PASS: Software Engineer prompt contains expected content."
+} else {
+    Write-Host "FAIL: Software Engineer prompt content is incorrect."
+    exit 1
+}
