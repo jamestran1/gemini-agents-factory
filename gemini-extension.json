@@ -1,0 +1,18 @@
+{
+  "name": "gemini-agents-factory",
+  "version": "1.0.0",
+  "description": "An autonomous, multi-agent software development factory for the Gemini CLI.",
+  "contextFileName": "GEMINI.md",
+  "settings": [
+    {
+      "name": "Trello API Key",
+      "envVar": "TRELLO_API_KEY",
+      "sensitive": true
+    },
+    {
+      "name": "Trello Token",
+      "envVar": "TRELLO_TOKEN",
+      "sensitive": true
+    }
+  ]
+}
