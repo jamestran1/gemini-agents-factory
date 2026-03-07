@@ -65,3 +65,20 @@ if ($content -match "Software Engineer" -and $content.ToLower() -match "implemen
     Write-Host "FAIL: Software Engineer prompt content is incorrect."
     exit 1
 }
+
+# Test QA Agent Existence
+if (Test-Path "src/agents/qa.md") {
+    Write-Host "PASS: src/agents/qa.md exists."
+} else {
+    Write-Host "FAIL: src/agents/qa.md not found."
+    exit 1
+}
+
+# Test QA Prompt Content
+$content = Get-Content "src/agents/qa.md" -Raw
+if ($content -match "QA" -and $content.ToLower() -match "verification") {
+    Write-Host "PASS: QA prompt contains expected content."
+} else {
+    Write-Host "FAIL: QA prompt content is incorrect."
+    exit 1
+}
