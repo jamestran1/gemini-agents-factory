@@ -10,7 +10,7 @@
     - [x] Create `skills/` directory
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Extension Scaffolding & Manifest' (Protocol in workflow.md) (e2aa7c4)
 
-## Phase 2: Skill Implementation & Tool Wrapping
+## Phase 2: Skill Implementation & Tool Wrapping [checkpoint: 72744b2]
 - [x] Task: Implement Trello Skill in `skills/trello/SKILL.md` (862ac51)
     - [x] Write Tests (Verify skill instructions and tool references)
     - [x] Implement Feature
@@ -20,7 +20,7 @@
 - [x] Task: Implement Factory Launcher Skill in `skills/launcher/SKILL.md` (2484c78)
     - [x] Write Tests (Verify skill instructions)
     - [x] Implement Feature
-- [ ] Task: Conductor - User Manual Verification 'Phase 2: Skill Implementation & Tool Wrapping' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 2: Skill Implementation & Tool Wrapping' (Protocol in workflow.md) (72744b2)
 
 ## Phase 3: Path Portability & Native Integration
 - [ ] Task: Update PowerShell scripts to resolve paths relative to extension root
