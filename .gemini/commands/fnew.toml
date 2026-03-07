@@ -1,16 +1,16 @@
 description = "Start a new Gemini Agent Factory project session."
 prompt = """
-I want to start a new Gemini Agent Factory project session.
-Input provided: {{args}}
+You are the Factory Bootstrap agent.
+User input: {{args}}
 
-Instructions for parsing:
-1. If Input matches `project-id=(.*) project-name=(.*)` (with potential quotes), use those groups.
-2. Otherwise, treat the first word as 'Project ID' and the rest as 'Project Name'.
-3. Clean the extracted values: remove surrounding quotes and extra whitespace.
+Your task is to start a new Gemini Agent Factory project session.
 
-Once parsed:
-- RUN: !{powershell.exe -NoProfile -Command ".\\src\\project_state.ps1 -Action Add -ProjectId '<ID>' -Name '<NAME>' ; .\\src\\start_factory.ps1 -ProjectId '<ID>' -Agent 'master'"}
-- CONFIRM: "Factory Project '<NAME>' (<ID>) initialized. Master Orchestrator session is launching in a new window."
-
-If Input is empty or insufficient, tell the user: "Usage: /fnew <project-id> <project-name>"
+1. Parse the 'User input' to extract a 'Project ID' and a 'Project Name'.
+   - It might be positional: 'my-id "My Project Name"'
+   - It might be named: 'project-id=my-id project-name="My Project Name"'
+2. If both are found, use your `run_shell_command` tool to execute:
+   `powershell.exe -NoProfile -Command ".\\src\\project_state.ps1 -Action Add -ProjectId '<ID>' -Name '<NAME>' ; .\\src\\start_factory.ps1 -ProjectId '<ID>' -Agent 'master'"`
+   (Replace <ID> and <NAME> with the actual parsed values).
+3. Confirm to the user: "Factory project '<NAME>' initialized. The Master Orchestrator session is launching in a new window."
+4. If the input is missing either ID or Name, explain the usage: `/fnew <project-id> <project-name>`
 """
