@@ -6,8 +6,14 @@ param(
     [string]$From,
     [string]$To,
     [string]$Message,
-    [string]$ContextFile = "src/shared_context.json"
+    [string]$ContextFile = "shared_context.json"
 )
+
+# Anchor the default filename to the project root if no specific directory is provided
+if (-not ([System.IO.Path]::IsPathRooted($ContextFile)) -and -not ($ContextFile -match '[\\/]')) {
+    $projectRoot = Split-Path $PSScriptRoot -Parent
+    $ContextFile = Join-Path $projectRoot $ContextFile
+}
 
 if ($Action -eq "Send") {
     $newMessage = @{
