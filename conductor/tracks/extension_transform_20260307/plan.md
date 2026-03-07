@@ -26,9 +26,9 @@
 - [x] Task: Update PowerShell scripts to resolve paths relative to extension root (07041cc)
     - [x] Write Tests (Verify script execution with dynamic paths)
     - [x] Implement Feature
-- [ ] Task: Update Agent System Prompts to use Extension-native references
-    - [ ] Write Tests (Verify prompts reference skills and relative paths)
-    - [ ] Implement Feature
+- [x] Task: Update Agent System Prompts to use Extension-native references (4f2f873)
+    - [x] Write Tests (Verify prompts reference skills and relative paths)
+    - [x] Implement Feature
 - [ ] Task: Update `/fnew` command to use extension-aware paths and skills
     - [ ] Write Tests (Verify command logic)
     - [ ] Implement Feature
