@@ -34,11 +34,11 @@
     - [x] Implement Feature
 - [x] Task: Conductor - User Manual Verification 'Phase 3: Path Portability & Native Integration' (Protocol in workflow.md) (01f3dc6)
 
-## Phase 4: Finalization & Documentation
+## Phase 4: Finalization & Documentation [checkpoint: a31d232]
 - [x] Task: Update `README.md` with official installation instructions (3c601db)
     - [x] Write Tests (Verify README accuracy)
     - [x] Implement Feature
-- [ ] Task: Verify end-to-end installation flow using `gemini extensions link`
-    - [ ] Write Tests (Simulate local link and test command/agent availability)
-    - [ ] Implement Feature
-- [ ] Task: Conductor - User Manual Verification 'Phase 4: Finalization & Documentation' (Protocol in workflow.md)
+- [x] Task: Verify end-to-end installation flow using `gemini extensions link` (c566138)
+    - [x] Write Tests (Simulate local link and test command/agent availability)
+    - [x] Implement Feature
+- [x] Task: Conductor - User Manual Verification 'Phase 4: Finalization & Documentation' (Protocol in workflow.md) (a31d232)
