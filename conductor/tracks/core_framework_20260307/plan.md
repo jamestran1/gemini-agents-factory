@@ -10,9 +10,9 @@
 - [x] Task: Define Project Manager Agent System Prompt and Configuration (7021deb)
     - [x] Write Tests (Validate PM logic)
     - [x] Implement Feature
-- [ ] Task: Define Software Engineer Agent System Prompt and Configuration
-    - [ ] Write Tests (Validate SE logic)
-    - [ ] Implement Feature
+- [x] Task: Define Software Engineer Agent System Prompt and Configuration (4b5ed91)
+    - [x] Write Tests (Validate SE logic)
+    - [x] Implement Feature
 - [ ] Task: Define QA Agent System Prompt and Configuration
     - [ ] Write Tests (Validate QA logic)
     - [ ] Implement Feature
