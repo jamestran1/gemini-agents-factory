@@ -8,7 +8,12 @@ param(
     [string]$ManifestFile = "projects.json"
 )
 
-$projectRoot = Split-Path $PSScriptRoot -Parent
+$scriptDir = $PSScriptRoot
+$projectRoot = Split-Path $scriptDir -Parent
+if ($env:GEMINI_EXTENSION_PATH) {
+    $projectRoot = $env:GEMINI_EXTENSION_PATH
+}
+
 if (-not ([System.IO.Path]::IsPathRooted($ManifestFile))) {
     $ManifestFile = Join-Path $projectRoot $ManifestFile
 }

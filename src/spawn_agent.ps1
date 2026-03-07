@@ -8,8 +8,13 @@ param(
     [switch]$Mock
 )
 
-$projectRoot = Split-Path $PSScriptRoot -Parent
-$agentPromptPath = Join-Path $projectRoot "src\agents\$Agent.md"
+$scriptDir = $PSScriptRoot
+$projectRoot = Split-Path $scriptDir -Parent
+if ($env:GEMINI_EXTENSION_PATH) {
+    $projectRoot = $env:GEMINI_EXTENSION_PATH
+}
+
+$agentPromptPath = Join-Path $projectRoot "agents\$Agent.md"
 
 if (-not (Test-Path $agentPromptPath)) {
     Write-Error "Agent prompt file not found: $agentPromptPath"

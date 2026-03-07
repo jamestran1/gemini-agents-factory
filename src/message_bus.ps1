@@ -10,7 +10,14 @@ param(
     [string]$ContextFile
 )
 
-$projectRoot = Split-Path $PSScriptRoot -Parent
+$scriptDir = $PSScriptRoot
+$projectRoot = Split-Path $scriptDir -Parent
+
+# When installed as an extension, $env:GEMINI_EXTENSION_PATH might be available.
+# We ensure we are always working relative to the scripts folder or the provided ContextFile.
+if ($env:GEMINI_EXTENSION_PATH) {
+    $projectRoot = $env:GEMINI_EXTENSION_PATH
+}
 
 if ($ProjectId) {
     $ContextFile = Join-Path $projectRoot "shared_context_$ProjectId.json"
