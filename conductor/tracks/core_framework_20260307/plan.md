@@ -7,9 +7,9 @@
 - [x] Task: Define Designer UI/UX Agent System Prompt and Configuration (1947713)
     - [x] Write Tests (Validate designer logic)
     - [x] Implement Feature
-- [ ] Task: Define Project Manager Agent System Prompt and Configuration
-    - [ ] Write Tests (Validate PM logic)
-    - [ ] Implement Feature
+- [x] Task: Define Project Manager Agent System Prompt and Configuration (7021deb)
+    - [x] Write Tests (Validate PM logic)
+    - [x] Implement Feature
 - [ ] Task: Define Software Engineer Agent System Prompt and Configuration
     - [ ] Write Tests (Validate SE logic)
     - [ ] Implement Feature
