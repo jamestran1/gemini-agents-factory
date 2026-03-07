@@ -28,7 +28,9 @@ if ($Mock) {
 Write-Host "Launching Gemini CLI for Project: $ProjectId, Agent: $Agent..."
 
 # We set the GEMINI_SYSTEM_MD environment variable to the agent's prompt file.
-# Then we launch gemini in a new window.
-Start-Process powershell.exe -ArgumentList "-NoExit", "-Command", "`$env:GEMINI_SYSTEM_MD = `"$agentPromptPath`" ; Set-Location `"$projectRoot`" ; & `"$geminiExe`""
+# We also set the window title and print a welcome message.
+$launchCommand = "`$Host.UI.RawUI.WindowTitle = 'FACTORY: $Agent - $ProjectId' ; Clear-Host ; Write-Host '========================================' -ForegroundColor Cyan ; Write-Host '  GEMINI AGENT FACTORY: $Agent' -ForegroundColor Cyan ; Write-Host '  Project: $ProjectId' -ForegroundColor Cyan ; Write-Host '========================================' -ForegroundColor Cyan ; `$env:GEMINI_SYSTEM_MD = '$agentPromptPath' ; Set-Location '$projectRoot' ; & '$geminiExe'"
+
+Start-Process powershell.exe -ArgumentList "-NoExit", "-Command", $launchCommand
 
 Write-Host "Session started."
