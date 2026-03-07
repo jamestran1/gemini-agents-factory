@@ -16,20 +16,23 @@ if (-not (Test-Path $agentPromptPath)) {
     exit 1
 }
 
-# Construct the Gemini CLI command.
-# Using 'gemini' as the executable (assuming it's in path).
-# Passing the system prompt and potentially setting up an environment for the project ID.
-$command = "gemini --prompt-file `"$agentPromptPath`""
+# Launch Gemini CLI. 
+# We use Start-Process with gemini directly to avoid the 'PowerShell' window feel where possible.
+# If 'gemini' is not a direct executable but a script/alias, we might need powershell -c.
+
+$geminiCommand = "gemini"
+$args = "--prompt-file `"$agentPromptPath`""
 
 if ($Mock) {
-    $msg = "Launched Gemini CLI session for project $ProjectId with agent $Agent (Command: $command)"
+    $msg = "Launched Gemini CLI session for project $ProjectId with agent $Agent (Command: $geminiCommand $args)"
     Write-Host $msg
     return $msg
 }
 
 Write-Host "Launching Gemini CLI for Project: $ProjectId, Agent: $Agent..."
 
-# Use Start-Process to launch in a new window (supporting 'multiple session tabs' feel)
-Start-Process powershell.exe -ArgumentList "-NoExit", "-Command", "$command"
+# Using powershell to launch ensures paths and environment variables are inherited correctly
+# but we execute gemini immediately.
+Start-Process powershell.exe -ArgumentList "-NoExit", "-Command", "$geminiCommand $args"
 
 Write-Host "Session started."

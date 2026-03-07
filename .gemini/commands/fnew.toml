@@ -1,11 +1,15 @@
-description = "Start a new Gemini Agent Factory project session."
+description = "Start a new Gemini Agent Factory project session. Usage: /fnew <id> <name> OR /fnew project-id=<id> project-name='<name>'"
 prompt = """
 I want to start a new Gemini Agent Factory project session.
-The arguments provided are: {{args}}
+The input provided is: {{args}}
 
-Please parse these arguments to extract a 'Project ID' and a 'Project Name'.
-Then, use your tools to:
-1. Run: powershell.exe -NoProfile -Command ".\\src\\project_state.ps1 -Action Add -ProjectId '<ID>' -Name '<Name>'"
-2. Run: powershell.exe -NoProfile -Command ".\\src\\start_factory.ps1 -ProjectId '<ID>' -Agent 'master'"
-3. Confirm the launch to the user.
+Please:
+1. Parse the input to extract a 'Project ID' and a 'Project Name'. 
+   - Look for positional arguments (e.g., 'my-id "My Project"')
+   - OR look for named arguments (e.g., 'project-id=my-id project-name="My Project"')
+2. If both are found:
+   - Run: !{powershell.exe -NoProfile -Command ".\\src\\project_state.ps1 -Action Add -ProjectId '<ID>' -Name '<Name>'"}
+   - Run: !{powershell.exe -NoProfile -Command ".\\src\\start_factory.ps1 -ProjectId '<ID>' -Agent 'master'"}
+   - Confirm to the user: "Factory session initialized for '<Name>' (ID: <ID>). A new window has been launched with the Master Orchestrator."
+3. If missing, explain usage: /fnew <project-id> <project-name>
 """

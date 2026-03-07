@@ -22,27 +22,36 @@ if ($Action -eq "Add") {
     }
 
     if (Test-Path $ManifestFile) {
-        $projects = @(Get-Content $ManifestFile -Raw | ConvertFrom-Json)
-        $projects += $newProject
+        $content = Get-Content $ManifestFile -Raw
+        if ([string]::IsNullOrWhiteSpace($content)) {
+            $projects = @($newProject)
+        } else {
+            $projects = @($content | ConvertFrom-Json)
+            $projects += $newProject
+        }
     } else {
         $projects = @($newProject)
     }
 
-    $projects | ConvertTo-Json | Out-File $ManifestFile
+    $projects | ConvertTo-Json -Depth 10 | Out-File $ManifestFile
 } elseif ($Action -eq "List") {
     if (Test-Path $ManifestFile) {
-        return @(Get-Content $ManifestFile -Raw | ConvertFrom-Json)
+        $content = Get-Content $ManifestFile -Raw
+        if ([string]::IsNullOrWhiteSpace($content)) { return @() }
+        return @($content | ConvertFrom-Json)
     } else {
         return @()
     }
 } elseif ($Action -eq "Archive") {
     if (Test-Path $ManifestFile) {
-        $projects = @(Get-Content $ManifestFile -Raw | ConvertFrom-Json)
+        $content = Get-Content $ManifestFile -Raw
+        if ([string]::IsNullOrWhiteSpace($content)) { return }
+        $projects = @($content | ConvertFrom-Json)
         foreach ($p in $projects) {
             if ($p.id -eq $ProjectId) {
                 $p.status = "archived"
             }
         }
-        $projects | ConvertTo-Json | Out-File $ManifestFile
+        $projects | ConvertTo-Json -Depth 10 | Out-File $ManifestFile
     }
 }
