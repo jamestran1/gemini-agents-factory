@@ -23,9 +23,9 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 2: Skill Implementation & Tool Wrapping' (Protocol in workflow.md) (72744b2)
 
 ## Phase 3: Path Portability & Native Integration
-- [ ] Task: Update PowerShell scripts to resolve paths relative to extension root
-    - [ ] Write Tests (Verify script execution with dynamic paths)
-    - [ ] Implement Feature
+- [x] Task: Update PowerShell scripts to resolve paths relative to extension root (07041cc)
+    - [x] Write Tests (Verify script execution with dynamic paths)
+    - [x] Implement Feature
 - [ ] Task: Update Agent System Prompts to use Extension-native references
     - [ ] Write Tests (Verify prompts reference skills and relative paths)
     - [ ] Implement Feature
