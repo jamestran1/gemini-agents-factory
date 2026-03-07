@@ -18,7 +18,7 @@
     - [x] Implement Feature
 - [x] Task: Conductor - User Manual Verification 'Phase 2: Master Orchestrator & MCP/Skill Empowerment' (Protocol in workflow.md) (70d83d8)
 
-## Phase 3: CLI Integration & Parallel Runner
+## Phase 3: CLI Integration & Parallel Runner [checkpoint: 423b551]
 - [x] Task: Implement a `start-factory.ps1` script to launch independent CLI sessions (6988823)
     - [x] Write Tests (Mock CLI session launch)
     - [x] Implement Feature
@@ -28,4 +28,4 @@
 - [x] Task: Implement background task spawning for agents (Async execution) (203c699)
     - [x] Write Tests (Test spawning an agent in the background)
     - [x] Implement Feature
-- [ ] Task: Conductor - User Manual Verification 'Phase 3: CLI Integration & Parallel Runner' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 3: CLI Integration & Parallel Runner' (Protocol in workflow.md) (423b551)
