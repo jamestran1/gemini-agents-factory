@@ -4,10 +4,10 @@
 - [x] Task: Create `gemini-extension.json` manifest file (1470586)
     - [x] Write Tests (Validate JSON structure and mandatory fields)
     - [x] Implement Feature
-- [ ] Task: Reorganize directory structure for extension standards
-    - [ ] Move `.gemini/commands/*.toml` to `commands/`
-    - [ ] Move `src/agents/*.md` to `agents/`
-    - [ ] Create `skills/` directory
+- [x] Task: Reorganize directory structure for extension standards (4f0328e)
+    - [x] Move `.gemini/commands/*.toml` to `commands/`
+    - [x] Move `src/agents/*.md` to `agents/`
+    - [x] Create `skills/` directory
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Extension Scaffolding & Manifest' (Protocol in workflow.md)
 
 ## Phase 2: Skill Implementation & Tool Wrapping
