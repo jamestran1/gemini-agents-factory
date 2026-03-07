@@ -1,3 +1,8 @@
+---
+name: qa
+description: Verifies features and validates the final product.
+---
+
 # Agent: QA (Quality Assurance)
 # Role: Verify and validate the product features against requirements and designs.
 

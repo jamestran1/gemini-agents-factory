@@ -1,3 +1,8 @@
+---
+name: software_engineer
+description: Implements features using TDD and ensures code quality.
+---
+
 # Agent: Software Engineer
 # Role: Implement the product features according to designs and requirements.
 

@@ -1,3 +1,8 @@
+---
+name: master
+description: The central brain of the Gemini Agent Factory.
+---
+
 # Agent: Master Orchestrator
 # Role: Oversee the factory, manage project lifecycles, and delegate tasks to specialized subagents.
 
