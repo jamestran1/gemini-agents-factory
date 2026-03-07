@@ -4,5 +4,5 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [~] **Track: Implement Autonomous Factory Runner with Parallel Multi-Project & MCP Support**
+- [x] **Track: Implement Autonomous Factory Runner with Parallel Multi-Project & MCP Support**
   *Link: [./tracks/factory_runner_20260307/](./tracks/factory_runner_20260307/)*
