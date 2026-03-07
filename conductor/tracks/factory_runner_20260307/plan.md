@@ -10,9 +10,9 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Multi-Project Brain' (Protocol in workflow.md) (a94fa79)
 
 ## Phase 2: Master Orchestrator & MCP/Skill Empowerment
-- [ ] Task: Define the `Master Orchestrator` agent prompt (`src/agents/master.md`)
-    - [ ] Write Tests (Verify master agent logic and delegation capability)
-    - [ ] Implement Feature
+- [x] Task: Define the `Master Orchestrator` agent prompt (`src/agents/master.md`) (dd987b0)
+    - [x] Write Tests (Verify master agent logic and delegation capability)
+    - [x] Implement Feature
 - [ ] Task: Update all agent system prompts to explicitly reference Skill/MCP usage
     - [ ] Write Tests (Confirm prompts now include MCP instructions)
     - [ ] Implement Feature
