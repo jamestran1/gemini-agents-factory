@@ -1,6 +1,6 @@
 # Implementation Plan: Transform Factory into Installable Extension
 
-## Phase 1: Extension Scaffolding & Manifest
+## Phase 1: Extension Scaffolding & Manifest [checkpoint: e2aa7c4]
 - [x] Task: Create `gemini-extension.json` manifest file (1470586)
     - [x] Write Tests (Validate JSON structure and mandatory fields)
     - [x] Implement Feature
@@ -8,7 +8,7 @@
     - [x] Move `.gemini/commands/*.toml` to `commands/`
     - [x] Move `src/agents/*.md` to `agents/`
     - [x] Create `skills/` directory
-- [ ] Task: Conductor - User Manual Verification 'Phase 1: Extension Scaffolding & Manifest' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 1: Extension Scaffolding & Manifest' (Protocol in workflow.md) (e2aa7c4)
 
 ## Phase 2: Skill Implementation & Tool Wrapping
 - [ ] Task: Implement Trello Skill in `skills/trello/SKILL.md`
