@@ -9,8 +9,7 @@ Instructions for parsing:
 3. Clean the extracted values: remove surrounding quotes and extra whitespace.
 
 Once parsed:
-- RUN: !{powershell.exe -NoProfile -Command ".\\src\\project_state.ps1 -Action Add -ProjectId '<ID>' -Name '<NAME>'"}
-- RUN: !{powershell.exe -NoProfile -Command ".\\src\\start_factory.ps1 -ProjectId '<ID>' -Agent 'master'"}
+- RUN: !{powershell.exe -NoProfile -Command ".\\src\\project_state.ps1 -Action Add -ProjectId '<ID>' -Name '<NAME>' ; .\\src\\start_factory.ps1 -ProjectId '<ID>' -Agent 'master'"}
 - CONFIRM: "Factory Project '<NAME>' (<ID>) initialized. Master Orchestrator session is launching in a new window."
 
 If Input is empty or insufficient, tell the user: "Usage: /fnew <project-id> <project-name>"
