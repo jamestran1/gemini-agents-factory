@@ -42,10 +42,10 @@ if (Test-Path "src/agents/project_manager.md") {
 
 # Test Project Manager Prompt Content
 $content = Get-Content "src/agents/project_manager.md" -Raw
-if ($content -match "Project Manager" -and $content.ToLower() -match "tasks") {
-    Write-Host "PASS: Project Manager prompt contains expected content."
+if ($content -match "Project Manager" -and $content.ToLower() -match "tasks" -and $content -match "trello_service.ps1") {
+    Write-Host "PASS: Project Manager prompt contains expected content and Trello instructions."
 } else {
-    Write-Host "FAIL: Project Manager prompt content is incorrect."
+    Write-Host "FAIL: Project Manager prompt content is incorrect or missing Trello instructions."
     exit 1
 }
 
