@@ -5,11 +5,9 @@
   "contextFileName": "GEMINI.md",
   "mcpServers": {
     "factory": {
-      "command": "powershell.exe",
+      "command": "node",
       "args": [
-        "-NoProfile",
-        "-File",
-        "${extensionPath}${/}src${/}mcp_server.ps1"
+        "${extensionPath}${/}src${/}mcp_server.js"
       ],
       "cwd": "${extensionPath}"
     }
