@@ -1,8 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 
-const DEFAULT_MANIFEST = path.join(__dirname, '..', 'projects.json');
-
 /**
  * Get the absolute path to the manifest file.
  * @param {string} manifestPath - Optional custom path.
@@ -10,10 +8,8 @@ const DEFAULT_MANIFEST = path.join(__dirname, '..', 'projects.json');
  */
 function getManifestPath(manifestPath) {
   if (manifestPath) return manifestPath;
-  
-  // Handle extension path if available
   const root = process.env.GEMINI_EXTENSION_PATH || path.join(__dirname, '..');
-  return path.isAbsolute(DEFAULT_MANIFEST) ? DEFAULT_MANIFEST : path.join(root, 'projects.json');
+  return path.join(root, 'projects.json');
 }
 
 /**
@@ -25,10 +21,9 @@ async function listProjects(manifestPath) {
   const filePath = getManifestPath(manifestPath);
   if (!fs.existsSync(filePath)) return [];
   
-  const content = fs.readFileSync(filePath, 'utf8');
-  if (!content || content.trim() === '') return [];
-  
   try {
+    const content = fs.readFileSync(filePath, 'utf8');
+    if (!content || content.trim() === '') return [];
     const projects = JSON.parse(content);
     return Array.isArray(projects) ? projects : [];
   } catch (error) {

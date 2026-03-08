@@ -1,6 +1,6 @@
 {
   "name": "gemini-agents-factory",
-  "version": "1.0.0",
+  "version": "1.1.2",
   "description": "An autonomous, multi-agent software development factory for the Gemini CLI.",
   "contextFileName": "GEMINI.md",
   "mcpServers": {

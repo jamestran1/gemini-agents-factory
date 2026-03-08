@@ -25,14 +25,14 @@ async function sendMessage(projectId, from, to, message, baseDir) {
   let messages = [];
   
   if (fs.existsSync(filePath)) {
-    const content = fs.readFileSync(filePath, 'utf8');
-    if (content && content.trim() !== '') {
-      try {
+    try {
+      const content = fs.readFileSync(filePath, 'utf8');
+      if (content && content.trim() !== '') {
         messages = JSON.parse(content);
         if (!Array.isArray(messages)) messages = [];
-      } catch (error) {
-        messages = [];
       }
+    } catch (error) {
+      messages = [];
     }
   }
   
@@ -58,10 +58,10 @@ async function getMessages(projectId, to, baseDir) {
   const filePath = getContextFilePath(projectId, baseDir);
   if (!fs.existsSync(filePath)) return [];
   
-  const content = fs.readFileSync(filePath, 'utf8');
-  if (!content || content.trim() === '') return [];
-  
   try {
+    const content = fs.readFileSync(filePath, 'utf8');
+    if (!content || content.trim() === '') return [];
+    
     const messages = JSON.parse(content);
     if (!Array.isArray(messages)) return [];
     
