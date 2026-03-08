@@ -1,0 +1,21 @@
+{
+  "name": "factory",
+  "version": "1.0.0",
+  "description": "An autonomous, multi-agent software development factory built directly into the Gemini CLI.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.27.1"
+  },
+  "devDependencies": {
+    "jest": "^30.2.0"
+  }
+}
