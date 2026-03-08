@@ -21,7 +21,7 @@
     - [x] Implement Feature
 - [x] Task: Conductor - User Manual Verification 'Phase 2: Manifest & Global Integration' (Protocol in workflow.md) (2a1b12a)
 
-## Phase 3: Component Refactoring
+## Phase 3: Component Refactoring [checkpoint: 7dd7228]
 - [x] Task: Update `commands/fnew.toml` to use `factory__` tools (a0d96f1)
     - [x] Write Tests (Verify command string logic)
     - [x] Implement Feature
@@ -31,7 +31,7 @@
 - [x] Task: Update all `agents/*.md` prompts to reference global tools (bbb0fb9)
     - [x] Write Tests (Verify agent instructions)
     - [x] Implement Feature
-- [x] Task: Conductor - User Manual Verification 'Phase 3: Component Refactoring' (Protocol in workflow.md) (bbb0fb9)
+- [x] Task: Conductor - User Manual Verification 'Phase 3: Component Refactoring' (Protocol in workflow.md) (7dd7228)
 
 ## Phase 4: Final Verification & Zero-Setup Test
 - [ ] Task: Perform end-to-end test in a brand-new directory
