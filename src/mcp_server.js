@@ -14,17 +14,13 @@ function writeLog(message) {
   try {
     const timestamp = new Date().toISOString();
     fs.appendFileSync(logFile, `[${timestamp}] ${message}\n`);
-  } catch (err) {
-    // Ignore log errors
-  }
+  } catch (err) {}
 }
-
-writeLog("Server starting...");
 
 const server = new Server(
   {
     name: "gemini-agents-factory",
-    version: "1.1.1",
+    version: "1.1.2",
   },
   {
     capabilities: {
@@ -34,7 +30,7 @@ const server = new Server(
 );
 
 server.setRequestHandler(ListToolsRequestSchema, async () => {
-  writeLog("REQUEST: list_tools");
+  writeLog("LIST_TOOLS requested");
   return {
     tools: [
       {
@@ -43,86 +39,86 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
         inputSchema: {
           type: "object",
           properties: {
-            projectId: { type: "string", description: "Unique ID for the project." },
-            name: { type: "string", description: "Display name for the project." },
+            projectId: { type: "string" },
+            name: { type: "string" },
           },
           required: ["projectId", "name"],
         },
       },
       {
         name: "factory__list_projects",
-        description: "List all projects in the factory manifest.",
+        description: "List all projects.",
         inputSchema: { type: "object", properties: {} },
       },
       {
         name: "factory__send_message",
-        description: "Send a message to the project's shared context bus.",
+        description: "Send a message to context bus.",
         inputSchema: {
           type: "object",
           properties: {
-            projectId: { type: "string", description: "Project ID." },
-            from: { type: "string", description: "Sender agent role." },
-            to: { type: "string", description: "Recipient agent role." },
-            message: { type: "string", description: "Message content." },
+            projectId: { type: "string" },
+            from: { type: "string" },
+            to: { type: "string" },
+            message: { type: "string" },
           },
           required: ["projectId", "from", "to", "message"],
         },
       },
       {
         name: "factory__get_messages",
-        description: "Retrieve messages for an agent from the context bus.",
+        description: "Get messages from context bus.",
         inputSchema: {
           type: "object",
           properties: {
-            projectId: { type: "string", description: "Project ID." },
-            to: { type: "string", description: "Recipient agent role filter." },
+            projectId: { type: "string" },
+            to: { type: "string" },
           },
           required: ["projectId", "to"],
         },
       },
       {
         name: "factory__start_session",
-        description: "Launch a foreground Master Orchestrator session for a project.",
+        description: "Launch a foreground session.",
         inputSchema: {
           type: "object",
           properties: {
-            projectId: { type: "string", description: "Project ID." },
+            projectId: { type: "string" },
           },
           required: ["projectId"],
         },
       },
       {
         name: "factory__spawn_agent",
-        description: "Spawn a background agent task for a project.",
+        description: "Spawn a background agent.",
         inputSchema: {
           type: "object",
           properties: {
-            projectId: { type: "string", description: "Project ID." },
-            agent: { type: "string", description: "Agent role to spawn (e.g. software_engineer)." },
+            projectId: { type: "string" },
+            agent: { type: "string" },
           },
           required: ["projectId", "agent"],
         },
       },
       {
         name: "factory__trello_fetch",
-        description: "Fetch a Trello board's details.",
+        description: "Fetch Trello board.",
         inputSchema: {
           type: "object",
           properties: {
-            boardId: { type: "string", description: "Trello Board ID." },
+            boardId: { type: "string" },
           },
           required: ["boardId"],
         },
       },
       {
         name: "factory__trello_create",
-        description: "Create a new card (task) on a Trello list.",
+        description: "Create Trello card.",
         inputSchema: {
           type: "object",
           properties: {
-            listId: { type: "string", description: "Trello List ID." },
-            name: { type: "string", description: "Card title." },
-            description: { type: "string", description: "Card description." },
+            listId: { type: "string" },
+            name: { type: "string" },
+            description: { type: "string" },
           },
           required: ["listId", "name"],
         },
@@ -133,56 +129,42 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
 
 server.setRequestHandler(CallToolRequestSchema, async (request) => {
   const { name, arguments: args } = request.params;
-  writeLog(`CALL: ${name} with ${JSON.stringify(args)}`);
+  writeLog(`CALLING: ${name}`);
 
   try {
-    let result;
     switch (name) {
       case "factory__add_project":
-        writeLog("Executing addProject...");
-        result = await projectState.addProject(args.projectId, args.name);
-        writeLog("addProject complete.");
-        return { content: [{ type: "text", text: JSON.stringify(result) }] };
+        return { content: [{ type: "text", text: JSON.stringify(await projectState.addProject(args.projectId, args.name)) }] };
       case "factory__list_projects":
-        result = await projectState.listProjects();
-        return { content: [{ type: "text", text: JSON.stringify(result) }] };
+        return { content: [{ type: "text", text: JSON.stringify(await projectState.listProjects()) }] };
       case "factory__send_message":
         await messageBus.sendMessage(args.projectId, args.from, args.to, args.message);
-        return { content: [{ type: "text", text: "Message sent." }] };
+        return { content: [{ type: "text", text: "OK" }] };
       case "factory__get_messages":
-        result = await messageBus.getMessages(args.projectId, args.to);
-        return { content: [{ type: "text", text: JSON.stringify(result) }] };
+        return { content: [{ type: "text", text: JSON.stringify(await messageBus.getMessages(args.projectId, args.to)) }] };
       case "factory__start_session":
-        result = await launcher.startSession(args.projectId, "master");
-        return { content: [{ type: "text", text: result }] };
+        return { content: [{ type: "text", text: await launcher.startSession(args.projectId, "master") }] };
       case "factory__spawn_agent":
-        result = await launcher.spawnAgent(args.projectId, args.agent);
-        return { content: [{ type: "text", text: result }] };
+        return { content: [{ type: "text", text: await launcher.spawnAgent(args.projectId, args.agent) }] };
       case "factory__trello_fetch":
-        result = await trelloService.fetchBoard(args.boardId);
-        return { content: [{ type: "text", text: JSON.stringify(result) }] };
+        return { content: [{ type: "text", text: JSON.stringify(await trelloService.fetchBoard(args.boardId)) }] };
       case "factory__trello_create":
-        result = await trelloService.createTask(args.listId, args.name, args.description);
-        return { content: [{ type: "text", text: JSON.stringify(result) }] };
+        return { content: [{ type: "text", text: JSON.stringify(await trelloService.createTask(args.listId, args.name, args.description)) }] };
       default:
-        throw new Error(`Tool not found: ${name}`);
+        return { content: [{ type: "text", text: `Unknown tool: ${name}` }], isError: true };
     }
   } catch (error) {
-    writeLog(`ERROR: ${error.message}`);
-    return {
-      content: [{ type: "text", text: `Error: ${error.message || error}` }],
-      isError: true,
-    };
+    writeLog(`TOOL_ERROR: ${error.message}`);
+    return { content: [{ type: "text", text: `Error: ${error.message}` }], isError: true };
   }
 });
 
-async function main() {
+async function run() {
   const transport = new StdioServerTransport();
   await server.connect(transport);
-  writeLog("Connected.");
+  writeLog("READY");
 }
 
-main().catch(error => {
-  writeLog(`FATAL: ${error.message}`);
-  process.exit(1);
+run().catch((err) => {
+  writeLog(`FATAL: ${err.message}`);
 });
