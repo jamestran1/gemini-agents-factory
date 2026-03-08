@@ -64,8 +64,26 @@ $callReq = @{
 $resp = Invoke-MCPServer $callReq
 
 if ($resp -match "result" -and $resp -match "content") {
-    Write-Host "PASS: tools/call response received."
+    Write-Host "PASS: tools/call (add_project) response received."
 } else {
-    Write-Host "FAIL: tools/call response incorrect. Got: $resp"
+    Write-Host "FAIL: tools/call (add_project) response incorrect. Got: $resp"
+    exit 1
+}
+
+$listProjReq = @{ 
+    jsonrpc = "2.0"; 
+    id = 4; 
+    method = "tools/call"; 
+    params = @{ 
+        name = "factory__list_projects"; 
+        arguments = @{} 
+    } 
+} | ConvertTo-Json -Compress
+$resp = Invoke-MCPServer $listProjReq
+
+if ($resp -match "test") {
+    Write-Host "PASS: tools/call (list_projects) response received."
+} else {
+    Write-Host "FAIL: tools/call (list_projects) response incorrect. Got: $resp"
     exit 1
 }

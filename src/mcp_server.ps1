@@ -40,6 +40,84 @@ function List-Tools {
                     }
                     required = @("projectId", "name")
                 }
+            },
+            @{
+                name = "factory__list_projects"
+                description = "List all projects in the factory manifest."
+                inputSchema = @{ type = "object"; properties = @{} }
+            },
+            @{
+                name = "factory__send_message"
+                description = "Send a message to the project's shared context bus."
+                inputSchema = @{
+                    type = "object"
+                    properties = @{
+                        projectId = @{ type = "string"; description = "Project ID." }
+                        from = @{ type = "string"; description = "Sender agent role." }
+                        to = @{ type = "string"; description = "Recipient agent role." }
+                        message = @{ type = "string"; description = "Message content." }
+                    }
+                    required = @("projectId", "from", "to", "message")
+                }
+            },
+            @{
+                name = "factory__get_messages"
+                description = "Retrieve messages for an agent from the context bus."
+                inputSchema = @{
+                    type = "object"
+                    properties = @{
+                        projectId = @{ type = "string"; description = "Project ID." }
+                        to = @{ type = "string"; description = "Recipient agent role filter." }
+                    }
+                    required = @("projectId", "to")
+                }
+            },
+            @{
+                name = "factory__start_session"
+                description = "Launch a foreground Master Orchestrator session for a project."
+                inputSchema = @{
+                    type = "object"
+                    properties = @{
+                        projectId = @{ type = "string"; description = "Project ID." }
+                    }
+                    required = @("projectId")
+                }
+            },
+            @{
+                name = "factory__spawn_agent"
+                description = "Spawn a background agent task for a project."
+                inputSchema = @{
+                    type = "object"
+                    properties = @{
+                        projectId = @{ type = "string"; description = "Project ID." }
+                        agent = @{ type = "string"; description = "Agent role to spawn (e.g. software_engineer)." }
+                    }
+                    required = @("projectId", "agent")
+                }
+            },
+            @{
+                name = "factory__trello_fetch"
+                description = "Fetch a Trello board's details."
+                inputSchema = @{
+                    type = "object"
+                    properties = @{
+                        boardId = @{ type = "string"; description = "Trello Board ID." }
+                    }
+                    required = @("boardId")
+                }
+            },
+            @{
+                name = "factory__trello_create"
+                description = "Create a new card (task) on a Trello list."
+                inputSchema = @{
+                    type = "object"
+                    properties = @{
+                        listId = @{ type = "string"; description = "Trello List ID." }
+                        name = @{ type = "string"; description = "Card title." }
+                        description = @{ type = "string"; description = "Card description." }
+                    }
+                    required = @("listId", "name")
+                }
             }
         )
     }
@@ -50,10 +128,43 @@ function Call-Tool($Name, $Arguments) {
     
     switch ($Name) {
         "factory__add_project" {
-            $projectId = $Arguments.projectId
-            $projectName = $Arguments.name
             $scriptPath = Join-Path $scriptDir "project_state.ps1"
-            $output = powershell.exe -NoProfile -File $scriptPath -Action Add -ProjectId $projectId -Name $projectName 2>&1
+            $output = powershell.exe -NoProfile -File $scriptPath -Action Add -ProjectId $Arguments.projectId -Name $Arguments.name 2>&1
+            return @{ content = @(@{ type = "text"; text = "$output" }) }
+        }
+        "factory__list_projects" {
+            $scriptPath = Join-Path $scriptDir "project_state.ps1"
+            $output = powershell.exe -NoProfile -File $scriptPath -Action List 2>&1
+            return @{ content = @(@{ type = "text"; text = "$output" }) }
+        }
+        "factory__send_message" {
+            $scriptPath = Join-Path $scriptDir "message_bus.ps1"
+            $output = powershell.exe -NoProfile -File $scriptPath -Action Send -ProjectId $Arguments.projectId -From $Arguments.from -To $Arguments.to -Message $Arguments.message 2>&1
+            return @{ content = @(@{ type = "text"; text = "$output" }) }
+        }
+        "factory__get_messages" {
+            $scriptPath = Join-Path $scriptDir "message_bus.ps1"
+            $output = powershell.exe -NoProfile -File $scriptPath -Action Get -ProjectId $Arguments.projectId -To $Arguments.to 2>&1
+            return @{ content = @(@{ type = "text"; text = "$output" }) }
+        }
+        "factory__start_session" {
+            $scriptPath = Join-Path $scriptDir "start_factory.ps1"
+            $output = powershell.exe -NoProfile -File $scriptPath -ProjectId $Arguments.projectId -Agent "master" 2>&1
+            return @{ content = @(@{ type = "text"; text = "$output" }) }
+        }
+        "factory__spawn_agent" {
+            $scriptPath = Join-Path $scriptDir "spawn_agent.ps1"
+            $output = powershell.exe -NoProfile -File $scriptPath -ProjectId $Arguments.projectId -Agent $Arguments.agent 2>&1
+            return @{ content = @(@{ type = "text"; text = "$output" }) }
+        }
+        "factory__trello_fetch" {
+            $scriptPath = Join-Path $scriptDir "trello_service.ps1"
+            $output = powershell.exe -NoProfile -File $scriptPath -Action FetchBoard -BoardId $Arguments.boardId 2>&1
+            return @{ content = @(@{ type = "text"; text = "$output" }) }
+        }
+        "factory__trello_create" {
+            $scriptPath = Join-Path $scriptDir "trello_service.ps1"
+            $output = powershell.exe -NoProfile -File $scriptPath -Action CreateTask -ListId $Arguments.listId -Name $Arguments.name -Description $Arguments.description 2>&1
             return @{ content = @(@{ type = "text"; text = "$output" }) }
         }
         default {
