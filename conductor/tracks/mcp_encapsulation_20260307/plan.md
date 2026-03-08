@@ -13,10 +13,10 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 1: PowerShell MCP Server Implementation' (Protocol in workflow.md) (158ffe9)
 
 ## Phase 2: Manifest & Global Integration
-- [ ] Task: Register MCP server in `gemini-extension.json`
-    - [ ] Write Tests (Verify manifest structure with mcpServers entry)
-    - [ ] Implement Feature
-- [ ] Task: Ensure all factory scripts handle absolute paths relative to their own location
+- [x] Task: Register MCP server in `gemini-extension.json` (d2f2e3b)
+    - [x] Write Tests (Verify manifest structure with mcpServers entry)
+    - [x] Implement Feature
+- [~] Task: Ensure all factory scripts handle absolute paths relative to their own location
     - [ ] Write Tests (Verify scripts find dependencies when run from outside the extension)
     - [ ] Implement Feature
 - [ ] Task: Conductor - User Manual Verification 'Phase 2: Manifest & Global Integration' (Protocol in workflow.md)
