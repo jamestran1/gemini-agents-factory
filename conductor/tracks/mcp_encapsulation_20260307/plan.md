@@ -1,16 +1,16 @@
 # Implementation Plan: Encapsulate Factory as a Native MCP-Powered Extension
 
-## Phase 1: PowerShell MCP Server Implementation
-- [ ] Task: Implement core MCP JSON-RPC handler in `src/mcp_server.ps1`
-    - [ ] Write Tests (Verify initialization and list_tools messages)
-    - [ ] Implement Feature
-- [ ] Task: Implement tool routing logic in `src/mcp_server.ps1`
-    - [ ] Write Tests (Test calling a mock tool via JSON-RPC)
-    - [ ] Implement Feature
-- [ ] Task: Map factory scripts to MCP tools (`factory__add_project`, etc.)
-    - [ ] Write Tests (Verify specific tool calls return expected results)
-    - [ ] Implement Feature
-- [ ] Task: Conductor - User Manual Verification 'Phase 1: PowerShell MCP Server Implementation' (Protocol in workflow.md)
+## Phase 1: PowerShell MCP Server Implementation [checkpoint: 158ffe9]
+- [x] Task: Implement core MCP JSON-RPC handler in `src/mcp_server.ps1` (c1b2fbd)
+    - [x] Write Tests (Verify initialization and list_tools messages)
+    - [x] Implement Feature
+- [x] Task: Implement tool routing logic in `src/mcp_server.ps1` (13b9d41)
+    - [x] Write Tests (Test calling a mock tool via JSON-RPC)
+    - [x] Implement Feature
+- [x] Task: Map factory scripts to MCP tools (`factory__add_project`, etc.) (73f5491)
+    - [x] Write Tests (Verify specific tool calls return expected results)
+    - [x] Implement Feature
+- [x] Task: Conductor - User Manual Verification 'Phase 1: PowerShell MCP Server Implementation' (Protocol in workflow.md) (158ffe9)
 
 ## Phase 2: Manifest & Global Integration
 - [ ] Task: Register MCP server in `gemini-extension.json`
