@@ -28,10 +28,10 @@
 - [x] Task: Update all `skills/**/SKILL.md` to use global tool names (2f0796a)
     - [x] Write Tests (Verify skill instructions)
     - [x] Implement Feature
-- [~] Task: Update all `agents/*.md` prompts to reference global tools
-    - [ ] Write Tests (Verify agent instructions)
-    - [ ] Implement Feature
-- [ ] Task: Conductor - User Manual Verification 'Phase 3: Component Refactoring' (Protocol in workflow.md)
+- [x] Task: Update all `agents/*.md` prompts to reference global tools (bbb0fb9)
+    - [x] Write Tests (Verify agent instructions)
+    - [x] Implement Feature
+- [x] Task: Conductor - User Manual Verification 'Phase 3: Component Refactoring' (Protocol in workflow.md) (bbb0fb9)
 
 ## Phase 4: Final Verification & Zero-Setup Test
 - [ ] Task: Perform end-to-end test in a brand-new directory
