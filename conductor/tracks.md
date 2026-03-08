@@ -11,5 +11,10 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [ ] **Track: Encapsulate Factory as a Native MCP-Powered Extension**
+- [x] **Track: Encapsulate Factory as a Native MCP-Powered Extension**
   *Link: [./tracks/mcp_encapsulation_20260307/](./tracks/mcp_encapsulation_20260307/)*
+
+---
+
+- [ ] **Track: Migrate Factory Tools to Native Node.js**
+  *Link: [./tracks/node_migration_20260308/](./tracks/node_migration_20260308/)*
