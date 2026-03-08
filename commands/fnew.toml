@@ -5,6 +5,8 @@ User input: {{args}}
 
 Your task is to start a new Gemini Agent Factory project session using the factory's native MCP tools.
 
+IMPORTANT: If the factory MCP server is disconnected, ask the user to run `gemini trust` in the current folder.
+
 1. Parse the 'User input' to extract a 'Project ID' and a 'Project Name'.
 2. If both are found:
    - Call the tool `factory__add_project` with arguments { "projectId": "<ID>", "name": "<NAME>" }.
