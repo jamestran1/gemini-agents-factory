@@ -13,7 +13,11 @@ if (Test-Path $manifestFile) {
         # Check specific values
         if ($content.name -ne "gemini-agents-factory") { Write-Host "FAIL: Incorrect extension name '$($content.name)'."; exit 1 }
         
-        Write-Host "PASS: gemini-extension.json is valid."
+        # Validate MCP server registration
+        if (-not $content.mcpServers) { Write-Host "FAIL: 'mcpServers' field missing."; exit 1 }
+        if (-not $content.mcpServers.factory) { Write-Host "FAIL: 'factory' MCP server not registered."; exit 1 }
+        
+        Write-Host "PASS: gemini-extension.json is valid and includes MCP registration."
     } catch {
         Write-Host "FAIL: gemini-extension.json is not valid JSON. Error: $($_.Exception.Message)"
         exit 1

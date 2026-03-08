@@ -3,6 +3,17 @@
   "version": "1.0.0",
   "description": "An autonomous, multi-agent software development factory for the Gemini CLI.",
   "contextFileName": "GEMINI.md",
+  "mcpServers": {
+    "factory": {
+      "command": "powershell.exe",
+      "args": [
+        "-NoProfile",
+        "-File",
+        "${extensionPath}${/}src${/}mcp_server.ps1"
+      ],
+      "cwd": "${extensionPath}"
+    }
+  },
   "settings": [
     {
       "name": "Trello API Key",
