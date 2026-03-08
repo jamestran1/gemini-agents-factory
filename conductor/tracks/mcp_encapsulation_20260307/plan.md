@@ -16,10 +16,10 @@
 - [x] Task: Register MCP server in `gemini-extension.json` (d2f2e3b)
     - [x] Write Tests (Verify manifest structure with mcpServers entry)
     - [x] Implement Feature
-- [~] Task: Ensure all factory scripts handle absolute paths relative to their own location
-    - [ ] Write Tests (Verify scripts find dependencies when run from outside the extension)
-    - [ ] Implement Feature
-- [ ] Task: Conductor - User Manual Verification 'Phase 2: Manifest & Global Integration' (Protocol in workflow.md)
+- [x] Task: Ensure all factory scripts handle absolute paths relative to their own location (2a1b12a)
+    - [x] Write Tests (Verify scripts find dependencies when run from outside the extension)
+    - [x] Implement Feature
+- [x] Task: Conductor - User Manual Verification 'Phase 2: Manifest & Global Integration' (Protocol in workflow.md) (2a1b12a)
 
 ## Phase 3: Component Refactoring
 - [ ] Task: Update `commands/fnew.toml` to use `factory__` tools
