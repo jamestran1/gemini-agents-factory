@@ -22,13 +22,13 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 2: Manifest & Global Integration' (Protocol in workflow.md) (2a1b12a)
 
 ## Phase 3: Component Refactoring
-- [ ] Task: Update `commands/fnew.toml` to use `factory__` tools
-    - [ ] Write Tests (Verify command string logic)
-    - [ ] Implement Feature
-- [ ] Task: Update all `skills/**/SKILL.md` to use global tool names
-    - [ ] Write Tests (Verify skill instructions)
-    - [ ] Implement Feature
-- [ ] Task: Update all `agents/*.md` prompts to reference global tools
+- [x] Task: Update `commands/fnew.toml` to use `factory__` tools (a0d96f1)
+    - [x] Write Tests (Verify command string logic)
+    - [x] Implement Feature
+- [x] Task: Update all `skills/**/SKILL.md` to use global tool names (2f0796a)
+    - [x] Write Tests (Verify skill instructions)
+    - [x] Implement Feature
+- [~] Task: Update all `agents/*.md` prompts to reference global tools
     - [ ] Write Tests (Verify agent instructions)
     - [ ] Implement Feature
 - [ ] Task: Conductor - User Manual Verification 'Phase 3: Component Refactoring' (Protocol in workflow.md)
