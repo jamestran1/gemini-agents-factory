@@ -1,10 +1,10 @@
 # Implementation Plan: Migrate Factory Tools to Native Node.js
 
 ## Phase 1: Core Module Migration (State & Context)
-- [ ] Task: Implement `src/projectState.js`
-    - [ ] Write Tests (Validate JSON array management)
-    - [ ] Implement Feature
-- [ ] Task: Implement `src/messageBus.js`
+- [x] Task: Implement `src/projectState.js` (3b0a245)
+    - [x] Write Tests (Validate JSON array management)
+    - [x] Implement Feature
+- [~] Task: Implement `src/messageBus.js`
     - [ ] Write Tests (Validate isolated project context logic)
     - [ ] Implement Feature
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Core Module Migration' (Protocol in workflow.md)
