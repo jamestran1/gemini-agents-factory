@@ -9,14 +9,14 @@
     - [x] Implement Feature
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Core Module Migration' (Protocol in workflow.md) (7344110)
 
-## Phase 2: Trello & Launcher Migration
+## Phase 2: Trello & Launcher Migration [checkpoint: da1282a]
 - [x] Task: Implement `src/trelloService.js` using Node.js SDK/Rest (3e5f4df)
     - [x] Write Tests (Mock Trello API responses)
     - [x] Implement Feature
 - [x] Task: Implement `src/launcher.js` for forensic/background sessions (325eba5)
     - [x] Write Tests (Mock child_process spawning)
     - [x] Implement Feature
-- [ ] Task: Conductor - User Manual Verification 'Phase 2: Trello & Launcher Migration' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 2: Trello & Launcher Migration' (Protocol in workflow.md) (da1282a)
 
 ## Phase 3: Unified MCP Server & Cleanup
 - [ ] Task: Refactor `src/mcp_server.js` to call native modules directly
