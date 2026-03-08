@@ -1,16 +1,20 @@
 # Skill: Trello Management
 
-Manage Trello boards and tasks using the factory's Trello service.
+Manage Trello boards and tasks using the factory's native MCP tools.
 
 ## Usage
 
-This skill provides access to the `trello_service.ps1` script.
+This skill utilizes the factory's MCP tools for Trello operations.
 
 ### Fetch a Board
-`powershell.exe -NoProfile -Command ".\src\trello_service.ps1 -Action FetchBoard -BoardId <ID>"`
+Use the `factory__trello_fetch` tool with:
+- `boardId`: The ID of the Trello board.
 
 ### Create a Task (Card)
-`powershell.exe -NoProfile -Command ".\src\trello_service.ps1 -Action CreateTask -ListId <ID> -Name '<Name>' -Description '<Desc>'"`
+Use the `factory__trello_create` tool with:
+- `listId`: The ID of the Trello list.
+- `name`: The title of the card.
+- `description`: (Optional) The description of the card.
 
 ## Prerequisites
-- `TRELLO_API_KEY` and `TRELLO_TOKEN` environment variables must be set.
+- `TRELLO_API_KEY` and `TRELLO_TOKEN` must be configured in the extension settings.
