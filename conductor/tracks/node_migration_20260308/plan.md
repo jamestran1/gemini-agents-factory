@@ -25,9 +25,9 @@
 - [x] Task: Move existing `.ps1` scripts to `legacy/` (ad91d23)
 - [x] Task: Conductor - User Manual Verification 'Phase 3: Unified MCP Server & Cleanup' (Protocol in workflow.md) (cfc5b4b)
 
-## Phase 4: Final Verification
-- [ ] Task: Perform end-to-end Zero-Setup test in a new workspace
-    - [ ] Implement Feature
-- [ ] Task: Update `README.md` and `tech-stack.md`
-    - [ ] Implement Feature
-- [ ] Task: Conductor - User Manual Verification 'Phase 4: Final Verification' (Protocol in workflow.md)
+## Phase 4: Final Verification [checkpoint: 9feb12c]
+- [x] Task: Perform end-to-end Zero-Setup test in a new workspace (9feb12c)
+    - [x] Implement Feature
+- [x] Task: Update `README.md` and `tech-stack.md` (9feb12c)
+    - [x] Implement Feature
+- [x] Task: Conductor - User Manual Verification 'Phase 4: Final Verification' (Protocol in workflow.md) (9feb12c)
