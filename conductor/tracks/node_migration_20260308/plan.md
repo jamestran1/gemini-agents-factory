@@ -10,10 +10,10 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Core Module Migration' (Protocol in workflow.md) (7344110)
 
 ## Phase 2: Trello & Launcher Migration
-- [ ] Task: Implement `src/trelloService.js` using Node.js SDK/Rest
-    - [ ] Write Tests (Mock Trello API responses)
-    - [ ] Implement Feature
-- [ ] Task: Implement `src/launcher.js` for forensic/background sessions
+- [x] Task: Implement `src/trelloService.js` using Node.js SDK/Rest (3e5f4df)
+    - [x] Write Tests (Mock Trello API responses)
+    - [x] Implement Feature
+- [~] Task: Implement `src/launcher.js` for forensic/background sessions
     - [ ] Write Tests (Mock child_process spawning)
     - [ ] Implement Feature
 - [ ] Task: Conductor - User Manual Verification 'Phase 2: Trello & Launcher Migration' (Protocol in workflow.md)
