@@ -4,7 +4,7 @@ An autonomous, multi-agent software development factory built directly into the 
 
 ## 🚀 Overview
 
-Gemini Agent Factory allows you to orchestrate a virtual team of specialized AI agents to build, design, and manage software projects. It leverages the native power of Gemini CLI, custom subagents, and integrated tools like Trello to provide a seamless "Prompt to Product" experience.
+Gemini Agent Factory allows you to orchestrate a virtual team of specialized AI agents to build, design, and manage software projects. It leverages the native power of Gemini CLI and a high-performance **Node.js MCP Core** to provide a seamless "Prompt to Product" experience.
 
 ## 🤖 The Team
 
@@ -19,8 +19,8 @@ The factory features 6 specialized roles, each with a senior persona and full ac
 
 ## 🛠 Features
 
-- **Zero-Setup (Native MCP):** All factory tools are exposed via an integrated PowerShell MCP server.
-- **Autonomous Runner:** Launch independent agent sessions in new windows.
+- **Zero-Setup (Native Node.js MCP):** Tools are exposed via an integrated high-performance MCP server. No path configuration required.
+- **Autonomous Runner:** Launch independent agent sessions in new windows or background minimized windows.
 - **Parallel Multi-Project Engine:** Manage multiple concurrent projects with isolated shared contexts.
 - **Native CLI Integration:** Bootstrap new projects using the `/fnew` slash command.
 - **Official Skills:** Trello Management, Context Message Bus, and Factory Agent Launcher skills.
@@ -63,8 +63,9 @@ Hire a specific agent for a task:
 
 - **`agents/`**: System prompt definitions for all agent roles.
 - **`commands/`**: Native extension slash commands.
-- **`skills/`**: Specialized factory skills wrapping MCP tools.
-- **`src/`**: Core logic and PowerShell MCP server.
+- **`skills/`**: Specialized factory skills wrapping native MCP tools.
+- **`src/`**: High-performance Node.js MCP server and core logic.
+- **`legacy/`**: Original PowerShell implementation (archived).
 
 ## 📄 License
 This project is licensed under the MIT License.
