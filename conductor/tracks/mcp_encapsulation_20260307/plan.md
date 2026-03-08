@@ -34,9 +34,9 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 3: Component Refactoring' (Protocol in workflow.md) (7dd7228)
 
 ## Phase 4: Final Verification & Zero-Setup Test
-- [ ] Task: Perform end-to-end test in a brand-new directory
-    - [ ] Write Tests (Automated verification of project initialization in a temporary dir)
-    - [ ] Implement Feature
-- [ ] Task: Update `README.md` to highlight Zero-Setup benefits
-    - [ ] Implement Feature
-- [ ] Task: Conductor - User Manual Verification 'Phase 4: Final Verification & Zero-Setup Test' (Protocol in workflow.md)
+- [x] Task: Perform end-to-end test in a brand-new directory (65add1a)
+    - [x] Write Tests (Automated verification of project initialization in a temporary dir)
+    - [x] Implement Feature
+- [x] Task: Update `README.md` to highlight Zero-Setup benefits (d1ad282)
+    - [x] Implement Feature
+- [x] Task: Conductor - User Manual Verification 'Phase 4: Final Verification & Zero-Setup Test' (Protocol in workflow.md) (d1ad282)
