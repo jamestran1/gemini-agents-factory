@@ -13,8 +13,7 @@ param(
 $scriptDir = $PSScriptRoot
 $projectRoot = Split-Path $scriptDir -Parent
 
-# When installed as an extension, $env:GEMINI_EXTENSION_PATH might be available.
-# We ensure we are always working relative to the scripts folder or the provided ContextFile.
+# When installed as an extension, we prefer the manifest's perspective
 if ($env:GEMINI_EXTENSION_PATH) {
     $projectRoot = $env:GEMINI_EXTENSION_PATH
 }
@@ -25,9 +24,9 @@ if ($ProjectId) {
     $ContextFile = Join-Path $projectRoot "shared_context.json"
 }
 
-# Anchor the filename if it's relative and not already resolved
+# Resolve to absolute path
 if (-not ([System.IO.Path]::IsPathRooted($ContextFile))) {
-    $ContextFile = Join-Path $projectRoot $ContextFile
+    $ContextFile = [System.IO.Path]::GetFullPath((Join-Path $projectRoot $ContextFile))
 }
 
 if ($Action -eq "Send") {

@@ -15,7 +15,7 @@ if ($env:GEMINI_EXTENSION_PATH) {
 }
 
 if (-not ([System.IO.Path]::IsPathRooted($ManifestFile))) {
-    $ManifestFile = Join-Path $projectRoot $ManifestFile
+    $ManifestFile = [System.IO.Path]::GetFullPath((Join-Path $projectRoot $ManifestFile))
 }
 
 # Helper to ensure clean array handling in PowerShell
