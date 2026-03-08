@@ -19,18 +19,23 @@ The factory features 6 specialized roles, each with a senior persona and full ac
 
 ## 🛠 Features
 
+- **Zero-Setup (Native MCP):** All factory tools are exposed via an integrated PowerShell MCP server.
 - **Autonomous Runner:** Launch independent agent sessions in new windows.
 - **Parallel Multi-Project Engine:** Manage multiple concurrent projects with isolated shared contexts.
 - **Native CLI Integration:** Bootstrap new projects using the `/fnew` slash command.
 - **Official Skills:** Trello Management, Context Message Bus, and Factory Agent Launcher skills.
-- **Native Sub-Agents:** Access specialized agents (master, product_owner, designer, project_manager, software_engineer, qa) directly.
-- **MCP & Skill Support:** Every agent is empowered by your installed Gemini CLI extensions.
+- **Native Sub-Agents:** Access specialized agents directly using the `@` prefix.
 
 ## 📥 Installation
 
 Install the Gemini Agent Factory directly from GitHub:
 ```bash
 gemini extensions install https://github.com/jamestran1/gemini-agents-factory
+```
+
+**IMPORTANT:** After installing, you must "trust" any new project folder to enable the factory's MCP tools:
+```bash
+gemini trust
 ```
 
 ## 🎮 Usage
@@ -51,15 +56,15 @@ View the factory's skills in the CLI:
 ### Hiring Agents
 Hire a specific agent for a task:
 ```
-Hire the software_engineer to implement the login logic.
+@designer Design a clean console output layout for our factory.
 ```
 
 ## 🏗 Architecture
 
 - **`agents/`**: System prompt definitions for all agent roles.
-- **`commands/`**: Custom slash command definitions.
-- **`skills/`**: Specialized factory skills (Trello, Message Bus, Launcher).
-- **`src/`**: PowerShell orchestration scripts.
+- **`commands/`**: Native extension slash commands.
+- **`skills/`**: Specialized factory skills wrapping MCP tools.
+- **`src/`**: Core logic and PowerShell MCP server.
 
 ## 📄 License
 This project is licensed under the MIT License.
