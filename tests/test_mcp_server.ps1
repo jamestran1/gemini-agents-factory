@@ -51,3 +51,21 @@ if ($resp -match "factory__add_project") {
     Write-Host "FAIL: tools/list response incorrect. Got: $resp"
     exit 1
 }
+
+$callReq = @{ 
+    jsonrpc = "2.0"; 
+    id = 3; 
+    method = "tools/call"; 
+    params = @{ 
+        name = "factory__add_project"; 
+        arguments = @{ projectId = "test"; name = "Test Project" } 
+    } 
+} | ConvertTo-Json -Compress
+$resp = Invoke-MCPServer $callReq
+
+if ($resp -match "result" -and $resp -match "content") {
+    Write-Host "PASS: tools/call response received."
+} else {
+    Write-Host "FAIL: tools/call response incorrect. Got: $resp"
+    exit 1
+}

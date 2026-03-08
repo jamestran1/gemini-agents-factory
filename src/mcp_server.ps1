@@ -45,6 +45,23 @@ function List-Tools {
     }
 }
 
+function Call-Tool($Name, $Arguments) {
+    $scriptDir = $PSScriptRoot
+    
+    switch ($Name) {
+        "factory__add_project" {
+            $projectId = $Arguments.projectId
+            $projectName = $Arguments.name
+            $scriptPath = Join-Path $scriptDir "project_state.ps1"
+            $output = powershell.exe -NoProfile -File $scriptPath -Action Add -ProjectId $projectId -Name $projectName 2>&1
+            return @{ content = @(@{ type = "text"; text = "$output" }) }
+        }
+        default {
+            throw "Tool not found: $Name"
+        }
+    }
+}
+
 # Main Loop
 while ($line = [Console]::In.ReadLine()) {
     if ([string]::IsNullOrWhiteSpace($line)) { continue }
@@ -63,6 +80,14 @@ while ($line = [Console]::In.ReadLine()) {
             }
             "tools/list" {
                 Write-MCPResponse $id (List-Tools)
+            }
+            "tools/call" {
+                try {
+                    $result = Call-Tool $request.params.name $request.params.arguments
+                    Write-MCPResponse $id $result
+                } catch {
+                    Write-MCPError $id -32603 "Internal error: $($_.Exception.Message)"
+                }
             }
             default {
                 Write-MCPError $id -32601 "Method not found: $($request.method)"
