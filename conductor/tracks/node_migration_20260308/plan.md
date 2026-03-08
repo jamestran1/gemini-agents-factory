@@ -13,9 +13,9 @@
 - [x] Task: Implement `src/trelloService.js` using Node.js SDK/Rest (3e5f4df)
     - [x] Write Tests (Mock Trello API responses)
     - [x] Implement Feature
-- [~] Task: Implement `src/launcher.js` for forensic/background sessions
-    - [ ] Write Tests (Mock child_process spawning)
-    - [ ] Implement Feature
+- [x] Task: Implement `src/launcher.js` for forensic/background sessions (325eba5)
+    - [x] Write Tests (Mock child_process spawning)
+    - [x] Implement Feature
 - [ ] Task: Conductor - User Manual Verification 'Phase 2: Trello & Launcher Migration' (Protocol in workflow.md)
 
 ## Phase 3: Unified MCP Server & Cleanup
