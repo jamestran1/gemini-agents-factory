@@ -18,12 +18,12 @@
     - [x] Implement Feature
 - [x] Task: Conductor - User Manual Verification 'Phase 2: Trello & Launcher Migration' (Protocol in workflow.md) (da1282a)
 
-## Phase 3: Unified MCP Server & Cleanup [checkpoint: ad91d23]
+## Phase 3: Unified MCP Server & Cleanup [checkpoint: cfc5b4b]
 - [x] Task: Refactor `src/mcp_server.js` to call native modules directly (ad91d23)
     - [x] Write Tests (Verify MCP tool list and tool calls via SDK)
     - [x] Implement Feature
 - [x] Task: Move existing `.ps1` scripts to `legacy/` (ad91d23)
-- [x] Task: Conductor - User Manual Verification 'Phase 3: Unified MCP Server & Cleanup' (Protocol in workflow.md) (ad91d23)
+- [x] Task: Conductor - User Manual Verification 'Phase 3: Unified MCP Server & Cleanup' (Protocol in workflow.md) (cfc5b4b)
 
 ## Phase 4: Final Verification
 - [ ] Task: Perform end-to-end Zero-Setup test in a new workspace
